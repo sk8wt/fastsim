@@ -10,7 +10,7 @@
    
     <!-- Read required yaml files" / --> 
     <rosparam command="load" file="$(find flightgoggles)/config/drone/drone.yaml"/>
-    <rosparam command="load" file="$(find flightgoggles)/config/challenges/nominal_gate_locations.yaml"/>
+    <!-- <rosparam command="load" file="$(find flightgoggles)/config/challenges/nominal_gate_locations.yaml"/> -->
 
     <!-- Environment Creator -->
     <!-- flightgoggles_uav_dynamics simulator -->
