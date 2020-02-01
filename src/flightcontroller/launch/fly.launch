@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find flightgoggles)/launch/core.launch">
+  </include>
+
+  <include file="$(find visualizer)/launch/view.launch">
+  </include>
+
+  <!-- <node type="rviz" name="rviz" pkg="rviz" args="-d $(find flightcontroller)/rviz/viewer.rviz" /> -->
+
+  <node type="rqt_publisher" name="rqt_publisher" pkg="rqt_publisher"/>
+
+  <include file="$(find flightcontroller)/launch/angle.launch">
+  </include>
+
+  <include file="$(find flightcontroller)/launch/velocity.launch">
+  </include>
+
+  <include file="$(find flightcontroller)/launch/position.launch">
+  </include>
+
+
+</launch>
