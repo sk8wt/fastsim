@@ -4,13 +4,13 @@ This is a point simulator for a drone. The original code was adapted from [Fligh
 
 ## Installing the Simulator
 
-First we will start by cloning the repo:
+First, we will start by cloning the repo:
 ```
 $ git clone https://github.com/hildebrandt-carl/fastsim.git
 $ cd fastsim
 ```
 
-Next install all the prerequisits required for this project:
+Next, install all the prerequisites required for this project:
 ```
 $ sudo apt-get update
 $ sudo apt-get install libsdl-dev -y
@@ -19,21 +19,21 @@ $ python2 -m pip install --upgrade pip
 $ python2 -m pip install scipy
 ```
 
-Now we are going to install the ROS dependent dependancies:
+Now we are going to install the ROS dependent dependencies:
 ```
 $ rosdep install --from-paths src --ignore-src --rosdistro kinetic -y
 $ sudo apt-get install ros-kineitc-joy -y
 $ sudo apt-get install ros-kinetic-imu-filter-madgwick -y
 ```
 
-Next we are going to compile to workspace.
+Next, we are going to compile to the workspace.
 ```
 $ catkin build
 ```
 
 ## Using the Simulator
 
-Finally we are able to run the simulator
+Finally, we can run the simulator
 ```
 $ source fastsim/devel/setup.bash
 $ roslaunch flightcontroller fly.launch
@@ -45,4 +45,4 @@ Inside the rqt_publisher publish messages to:
 **Frequency:** 1Hz
 
 
-Set the x,y and z and the quadrotor will fly to that point.
+Set the x,y, and z: the quadrotor will fly to that point.
