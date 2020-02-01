@@ -6,8 +6,8 @@ This is a point simulator for a drone. The original code was adapted from [Fligh
 
 First we will start by cloning the repo:
 ```
-$ git clone ...
-$ cd easysim_ws
+$ git clone https://github.com/hildebrandt-carl/fastsim.git
+$ cd fastsim
 ```
 
 Next install all the prerequisits required for this project:
@@ -35,7 +35,7 @@ $ catkin build
 
 Finally we are able to run the simulator
 ```
-$ source easysim_ws/devel/setup.bash
+$ source fastsim/devel/setup.bash
 $ roslaunch flightcontroller fly.launch
 ```
 
