@@ -6,8 +6,9 @@ This is a point simulator for a drone. The original code was adapted from [Fligh
 
 First, we will start by cloning the repo:
 ```
+$ cd ~
 $ git clone https://github.com/hildebrandt-carl/fastsim.git
-$ cd fastsim
+$ cd ~/fastsim
 ```
 
 Next, install all the prerequisites required for this project:
@@ -21,13 +22,15 @@ $ python2 -m pip install scipy
 
 Now we are going to install the ROS dependent dependencies:
 ```
+$ cd ~/fastsim
 $ rosdep install --from-paths src --ignore-src --rosdistro kinetic -y
-$ sudo apt-get install ros-kineitc-joy -y
+$ sudo apt-get install ros-kinetic-joy -y
 $ sudo apt-get install ros-kinetic-imu-filter-madgwick -y
 ```
 
 Next, we are going to compile to the workspace.
 ```
+$ cd ~/fastsim
 $ catkin build
 ```
 
@@ -35,7 +38,7 @@ $ catkin build
 
 Finally, we can run the simulator
 ```
-$ source fastsim/devel/setup.bash
+$ source ~/fastsim/devel/setup.bash
 $ roslaunch flightcontroller fly.launch
 ```
 

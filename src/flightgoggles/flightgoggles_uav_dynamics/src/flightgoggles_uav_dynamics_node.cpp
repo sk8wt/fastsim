@@ -276,8 +276,6 @@ void Uav_Dynamics::computeMotorSpeedCommand(void){
    -momentThrust[0]/(4*momentArm_*thrustCoeff_)+ -momentThrust[1]/(4*momentArm_*thrustCoeff_)+  momentThrust[2]/(4*torqueCoeff_)+ momentThrust[3]/(4*thrustCoeff_)
   };
 
-  //std::cout << motorSpeedsSquared[0] << "," << motorSpeedsSquared[1] << "," << motorSpeedsSquared[2] << "," << motorSpeedsSquared[3] << std::endl;
-
   // Assuming rotor speeds >= 0
   for(size_t i = 0; i < 4; i++)
     propSpeedCommand_[i] = fmin(sqrt(fmax(0.,motorSpeedsSquared[i])),maxPropSpeed_);
