@@ -43,8 +43,7 @@ class Viewer():
     # While running
     while not rospy.is_shutdown():
 
-        # Print the position
-        print("X: " + str(self.x) + " Y: " + str(self.y) + " Z: " + str(self.z))
+        # Display the position
         self.view_point()
 
         # Sleep any excess time
