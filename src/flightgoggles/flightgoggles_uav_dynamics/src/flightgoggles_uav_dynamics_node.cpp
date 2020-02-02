@@ -440,28 +440,40 @@ void Uav_Dynamics::publishState(void){
   geometry_msgs::PoseStamped GPSReading ;
 
   GPSReading.header.frame_id = "world";
+  GPSReading.header.stamp = currentTime_;
 
-  GPSReading.pose.position.x = position_[0];
-  GPSReading.pose.position.y = position_[1];
-  GPSReading.pose.position.z = position_[2];
+  double position_noise_lvl = 0.01;
+  double attitude_noise_lvl = 0.0001;
+  double velocity_noise_lvl = 0.01;
 
-  GPSReading.pose.orientation.x = attitude_[0];
-  GPSReading.pose.orientation.y = attitude_[1];
-  GPSReading.pose.orientation.z = attitude_[2];
-  GPSReading.pose.orientation.w = attitude_[3];
+  double position_noise = position_noise_lvl * (std::rand()%10);
+  double attitude_noise = attitude_noise_lvl * (std::rand()%10);
+  double velocity_noise = velocity_noise_lvl * (std::rand()%10);
+
+  std::cout << position_noise << attitude_noise << velocity_noise << std::endl;
+
+  GPSReading.pose.position.x = position_[0] + position_noise;
+  GPSReading.pose.position.y = position_[1] + position_noise;
+  GPSReading.pose.position.z = position_[2] + position_noise;
+
+  GPSReading.pose.orientation.x = attitude_[0] + attitude_noise;
+  GPSReading.pose.orientation.y = attitude_[1] + attitude_noise;
+  GPSReading.pose.orientation.z = attitude_[2] + attitude_noise;
+  GPSReading.pose.orientation.w = attitude_[3] + attitude_noise;
   
   gpsPub_.publish(GPSReading);
-
 
   geometry_msgs::TwistStamped VelocityReading;
 
   VelocityReading.header.frame_id = "world";
+  VelocityReading.header.stamp = currentTime_;
 
-  VelocityReading.twist.linear.x = velocity_[0];
-  VelocityReading.twist.linear.y = velocity_[1];
-  VelocityReading.twist.linear.z = velocity_[2];
+  VelocityReading.twist.linear.x = velocity_[0] + velocity_noise;
+  VelocityReading.twist.linear.y = velocity_[1] + velocity_noise;
+  VelocityReading.twist.linear.z = velocity_[2] + velocity_noise;
 
   velPub_.publish(VelocityReading);
+  // *
 
 }
 

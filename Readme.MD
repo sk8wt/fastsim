@@ -49,3 +49,10 @@ Inside the rqt_publisher publish messages to:
 
 
 Set the x,y, and z: the quadrotor will fly to that point.
+
+
+Todo:
+Fixed Spelling
+Added the change dir to the approporate commands
+Removed the viewer from printing the XY and Z positions
+TODO: Add noise
