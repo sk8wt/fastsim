@@ -450,8 +450,6 @@ void Uav_Dynamics::publishState(void){
   double attitude_noise = attitude_noise_lvl * (std::rand()%10);
   double velocity_noise = velocity_noise_lvl * (std::rand()%10);
 
-  std::cout << position_noise << attitude_noise << velocity_noise << std::endl;
-
   GPSReading.pose.position.x = position_[0] + position_noise;
   GPSReading.pose.position.y = position_[1] + position_noise;
   GPSReading.pose.position.z = position_[2] + position_noise;
