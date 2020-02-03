@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 import rospy
-from math import round
 from geometry_msgs.msg import PoseStamped
 import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
