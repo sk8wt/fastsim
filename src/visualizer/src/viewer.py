@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import rospy
+from math import round
 from geometry_msgs.msg import PoseStamped
 import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
@@ -70,7 +71,7 @@ class Viewer():
     
     # self.fig.canvas.draw()
     plt.cla()
-    self.ax.set_title("Pos: (" + str(int(self.x)) + ", " + str(int(self.y)) + ", " + str(int(self.z)) + ")")
+    self.ax.set_title("Pos: (" + str(round(self.x,2)) + ", " + str(round(self.y,2)) + ", " + str(round(self.z,2)) + ")")
     self.ax.set_xlim([-5, 5])
     self.ax.set_ylim([-5, 5])
     self.ax.set_zlim([0, 5])
