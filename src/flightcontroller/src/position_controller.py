@@ -14,6 +14,10 @@ from std_msgs.msg import String
 class PositionController():
 
   def __init__(self):
+
+    # Allow the simulator to start
+    time.sleep(1)
+    
     # When this node shutsdown
     rospy.on_shutdown(self.shutdown_sequence)
 

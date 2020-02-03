@@ -70,6 +70,7 @@ class Viewer():
     
     # self.fig.canvas.draw()
     plt.cla()
+    self.ax.set_title("Pos: (" + str(int(self.x)) + ", " + str(int(self.y)) + ", " + str(int(self.z)) + ")")
     self.ax.set_xlim([-5, 5])
     self.ax.set_ylim([-5, 5])
     self.ax.set_zlim([0, 5])

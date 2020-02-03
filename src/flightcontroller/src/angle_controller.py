@@ -15,6 +15,9 @@ class AngleController():
 
   def __init__(self):
 
+    # Allow the simulator to start
+    time.sleep(1)
+
     # Run the shutdown sequence on shutdown
     rospy.on_shutdown(self.shutdown_sequence)
 
