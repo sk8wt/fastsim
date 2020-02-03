@@ -52,6 +52,6 @@ Set the x,y, and z: the quadrotor will fly to that point.
 
 ## Testing the Simulator
 
-To test the simulator, let it run for a minute. Do not provide the simulator with any input x,y, or z position. The default position is (0,0,3). The simulator should look as shown below. If the quadrotor (blue point) falls off the screen, and you have tried improving your VM's performance using the FAQ on the website, please let us know.
+To test the simulator, let it run for a minute. Do not provide the simulator with any input x,y, or z position. The default position is (0,0,3). The simulator should look as shown below. If the quadrotor (blue point) falls off the screen, try improving your VM's performance using the FAQ on the website. If you are sure you have tried all VM improvements, and the quadrotor still falls off the screen, let us know.
 
 ![](./sim_running.gif)
