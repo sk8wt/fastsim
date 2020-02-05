@@ -21,6 +21,9 @@ class PressureSensor():
     # Save the altitude of the drone
     self.altitude = 0
 
+    # Used to estimate the pressure
+    self.pressure = Float64()
+
     # Determines the baseline value of the perssure sensor at height 0m
     self.baseline_value = 0
 
@@ -40,14 +43,13 @@ class PressureSensor():
     # Set the rate of this loop
     rate = rospy.Rate(10)
 
-    # Used to estimate the pressure
-    pressure = Float64()
+
 
     # While ROS is still running
     while not rospy.is_shutdown():
 
       # Publish the altitude
-      self.pressure_pub.publish(pressure)
+      self.pressure_pub.publish(self.pressure)
 
       # Compute the pressure in milibars (according to https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf)
       common_term = pow(4.43077*pow(10,6)-self.altitude, 0.2553026)
@@ -57,7 +59,7 @@ class PressureSensor():
       noise = pow(10,-5) * random.uniform(-1, 1)
 
       # Set the pressure
-      pressure.data = P + noise - self.baseline_value
+      self.pressure.data = P + noise - self.baseline_value
 
       # Sleep for the remainder of the loop
       rate.sleep()
