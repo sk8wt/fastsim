@@ -21,8 +21,8 @@ class PressureSensor():
     # Save the altitude of the drone
     self.altitude = 0
 
-    # Determines whether the sensor is on or off
-    self.sensor_on = True
+    # Determines the baseline value of the perssure sensor at height 0m
+    self.baseline_value = 0
 
     # Call the mainloop of our class
     self.mainloop()
@@ -45,20 +45,19 @@ class PressureSensor():
 
     # While ROS is still running
     while not rospy.is_shutdown():
-      # If the sensor is on
-      if self.sensor_on:
-        # Publish the altitude
-        self.pressure_pub.publish(pressure)
 
-        # Compute the pressure in milibars (according to https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf)
-        common_term = pow(4.43077*pow(10,6)-self.altitude, 0.2553026)
-        P = (-0.0000229797 * self.altitude * common_term) + (20.3635* common_term)
+      # Publish the altitude
+      self.pressure_pub.publish(pressure)
 
-        # Add sensor noise
-        noise = pow(10,-5) * random.uniform(-1, 1)
+      # Compute the pressure in milibars (according to https://www.weather.gov/media/epz/wxcalc/pressureAltitude.pdf)
+      common_term = pow(4.43077*pow(10,6)-self.altitude, 0.2553026)
+      P = (-0.0000229797 * self.altitude * common_term) + (20.3635* common_term)
 
-        # Set the pressure
-        pressure.data = P + noise
+      # Add sensor noise
+      noise = pow(10,-5) * random.uniform(-1, 1)
+
+      # Set the pressure
+      pressure.data = P + noise - self.baseline_value
 
       # Sleep for the remainder of the loop
       rate.sleep()
