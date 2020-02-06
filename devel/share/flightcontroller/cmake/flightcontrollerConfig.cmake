@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/flightcontroller/share/flightcontroller/cmake/flightcontrollerConfig.cmake

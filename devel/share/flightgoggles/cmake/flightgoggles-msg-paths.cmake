@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/flightgoggles/share/flightgoggles/cmake/flightgoggles-msg-paths.cmake

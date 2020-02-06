@@ -21,5 +21,7 @@
   <include file="$(find flightcontroller)/launch/position.launch">
   </include>
 
-
+  <node name="state_safety_node" pkg="simple_control" type="state_and_safety.py" output="screen"/>
+  <node name="keyboard_manager_node" pkg="simple_control" type="keyboard_manager.py" output="screen"/>
+  <node name="keyboard" pkg="keyboard" type="keyboard"/>
 </launch>
