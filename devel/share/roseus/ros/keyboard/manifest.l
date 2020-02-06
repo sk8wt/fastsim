@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/keyboard/share/roseus/ros/keyboard/manifest.l

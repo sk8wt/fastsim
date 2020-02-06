@@ -1,0 +1,6 @@
+devel_space: /home/robotclass/RoboticsForSWEs/fastsim/devel
+install: false
+install_space: /home/robotclass/RoboticsForSWEs/fastsim/install
+profile: default
+source_space: /home/robotclass/RoboticsForSWEs/fastsim/src
+workspace: /home/robotclass/RoboticsForSWEs/fastsim

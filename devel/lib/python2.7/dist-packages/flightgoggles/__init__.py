@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/flightgoggles/lib/python2.7/dist-packages/flightgoggles/__init__.py

@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/catkin_tools_prebuild/setup.zsh
