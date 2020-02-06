@@ -30,10 +30,26 @@ class StateAndSafety():
 
     # TO BE COMPLETED AFTER CHECKPOINT 1
     # TODO: Add a position_sub that subscribes to the drones pose
-    self.position_sub = rospy.Subscriber('/uav/sensors/gps', Point, self.getPoint, queue_size = 1)
+    self.position_sub = rospy.Subscriber('/uav/sensors/gps', PoseStamped, self.getPoint, queue_size = 1)
 
-    # Save the acceptance range
-    self.acceptance_range = 0.5
+   # Get the acceptance range
+    self.acceptance_range = rospy.get_param("/state_safety_node/acceptance_range", 0.5)
+
+    # Getting the virtual cage parameters
+    cage_params = rospy.get_param('/state_safety_node/virtual_cage', {'x': 5, 'y': 5, 'z': 5})
+    cx, cy, cz = cage_params['x'], cage_params['y'], cage_params['z']
+
+    # Create the virtual cage
+    self.cage_x = [-1 * cx, cx]
+    self.cage_y = [-1 * cy, cy]
+    self.cage_z = [0, cz]
+        
+    # Display incoming parameters
+    rospy.loginfo(str(rospy.get_name()) + ": Launching with the following parameters:")
+    rospy.loginfo(str(rospy.get_name()) + ": Param: cage x - " + str(self.cage_x))
+    rospy.loginfo(str(rospy.get_name()) + ": Param: cage y - " + str(self.cage_y))
+    rospy.loginfo(str(rospy.get_name()) + ": Param: cage z - " + str(self.cage_z))
+    rospy.loginfo(str(rospy.get_name()) + ": Param: acceptance range - " + str(self.acceptance_range))
     # Create the drones state as hovering
     self.state = DroneState.HOVERING
     rospy.loginfo(str(rospy.get_name()) + ": Current State: HOVERING")
