@@ -1,6 +1,6 @@
 # FastSim
  
-This is a point simulator for a drone. The original code was adapted from [FlightGoggles](https://flightgoggles.mit.edu)
+This is a point simulator for a drone for Robotics. The original code was adapted from [FlightGoggles](https://flightgoggles.mit.edu)
 
 ## Installing the Simulator
 
