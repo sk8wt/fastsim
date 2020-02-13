@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/share/gennodejs/ros/sensor_simulators/_index.js

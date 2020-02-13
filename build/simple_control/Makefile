@@ -90,17 +90,6 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -112,16 +101,6 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -132,6 +111,27 @@ install/strip: preinstall
 install/strip/fast: install/strip
 
 .PHONY : install/strip/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -166,95 +166,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named run_tests
+# Target rules for targets named std_msgs_generate_messages_lisp
 
 # Build rule for target.
-run_tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_tests
-.PHONY : run_tests
+std_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
+.PHONY : std_msgs_generate_messages_lisp
 
 # fast build rule for target.
-run_tests/fast:
-	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
-.PHONY : run_tests/fast
-
-#=============================================================================
-# Target rules for targets named clean_test_results
-
-# Build rule for target.
-clean_test_results: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results
-.PHONY : clean_test_results
-
-# fast build rule for target.
-clean_test_results/fast:
-	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
-.PHONY : clean_test_results/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_nodejs
-
-# Build rule for target.
-std_msgs_generate_messages_nodejs: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
-.PHONY : std_msgs_generate_messages_nodejs
-
-# fast build rule for target.
-std_msgs_generate_messages_nodejs/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
-.PHONY : std_msgs_generate_messages_nodejs/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_py
-
-# Build rule for target.
-std_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
-.PHONY : std_msgs_generate_messages_py
-
-# fast build rule for target.
-std_msgs_generate_messages_py/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
-.PHONY : std_msgs_generate_messages_py/fast
-
-#=============================================================================
-# Target rules for targets named tests
-
-# Build rule for target.
-tests: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 tests
-.PHONY : tests
-
-# fast build rule for target.
-tests/fast:
-	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
-.PHONY : tests/fast
-
-#=============================================================================
-# Target rules for targets named doxygen
-
-# Build rule for target.
-doxygen: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 doxygen
-.PHONY : doxygen
-
-# fast build rule for target.
-doxygen/fast:
-	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
-.PHONY : doxygen/fast
-
-#=============================================================================
-# Target rules for targets named std_msgs_generate_messages_cpp
-
-# Build rule for target.
-std_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
-.PHONY : std_msgs_generate_messages_cpp
-
-# fast build rule for target.
-std_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
-.PHONY : std_msgs_generate_messages_cpp/fast
+std_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+.PHONY : std_msgs_generate_messages_lisp/fast
 
 #=============================================================================
 # Target rules for targets named std_msgs_generate_messages_eus
@@ -270,6 +192,45 @@ std_msgs_generate_messages_eus/fast:
 .PHONY : std_msgs_generate_messages_eus/fast
 
 #=============================================================================
+# Target rules for targets named std_msgs_generate_messages_cpp
+
+# Build rule for target.
+std_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_cpp
+.PHONY : std_msgs_generate_messages_cpp
+
+# fast build rule for target.
+std_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+.PHONY : std_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_gennodejs
+
+# Build rule for target.
+simple_control_gennodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_gennodejs
+.PHONY : simple_control_gennodejs
+
+# fast build rule for target.
+simple_control_gennodejs/fast:
+	$(MAKE) -f CMakeFiles/simple_control_gennodejs.dir/build.make CMakeFiles/simple_control_gennodejs.dir/build
+.PHONY : simple_control_gennodejs/fast
+
+#=============================================================================
+# Target rules for targets named tests
+
+# Build rule for target.
+tests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 tests
+.PHONY : tests
+
+# fast build rule for target.
+tests/fast:
+	$(MAKE) -f CMakeFiles/tests.dir/build.make CMakeFiles/tests.dir/build
+.PHONY : tests/fast
+
+#=============================================================================
 # Target rules for targets named download_extra_data
 
 # Build rule for target.
@@ -283,17 +244,212 @@ download_extra_data/fast:
 .PHONY : download_extra_data/fast
 
 #=============================================================================
-# Target rules for targets named std_msgs_generate_messages_lisp
+# Target rules for targets named simple_control_generate_messages_py
 
 # Build rule for target.
-std_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_lisp
-.PHONY : std_msgs_generate_messages_lisp
+simple_control_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_generate_messages_py
+.PHONY : simple_control_generate_messages_py
 
 # fast build rule for target.
-std_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make CMakeFiles/std_msgs_generate_messages_lisp.dir/build
-.PHONY : std_msgs_generate_messages_lisp/fast
+simple_control_generate_messages_py/fast:
+	$(MAKE) -f CMakeFiles/simple_control_generate_messages_py.dir/build.make CMakeFiles/simple_control_generate_messages_py.dir/build
+.PHONY : simple_control_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_generate_messages_nodejs
+
+# Build rule for target.
+simple_control_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_generate_messages_nodejs
+.PHONY : simple_control_generate_messages_nodejs
+
+# fast build rule for target.
+simple_control_generate_messages_nodejs/fast:
+	$(MAKE) -f CMakeFiles/simple_control_generate_messages_nodejs.dir/build.make CMakeFiles/simple_control_generate_messages_nodejs.dir/build
+.PHONY : simple_control_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_py
+
+# Build rule for target.
+std_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_py
+.PHONY : std_msgs_generate_messages_py
+
+# fast build rule for target.
+std_msgs_generate_messages_py/fast:
+	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_py.dir/build.make CMakeFiles/std_msgs_generate_messages_py.dir/build
+.PHONY : std_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_genpy
+
+# Build rule for target.
+simple_control_genpy: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_genpy
+.PHONY : simple_control_genpy
+
+# fast build rule for target.
+simple_control_genpy/fast:
+	$(MAKE) -f CMakeFiles/simple_control_genpy.dir/build.make CMakeFiles/simple_control_genpy.dir/build
+.PHONY : simple_control_genpy/fast
+
+#=============================================================================
+# Target rules for targets named std_msgs_generate_messages_nodejs
+
+# Build rule for target.
+std_msgs_generate_messages_nodejs: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 std_msgs_generate_messages_nodejs
+.PHONY : std_msgs_generate_messages_nodejs
+
+# fast build rule for target.
+std_msgs_generate_messages_nodejs/fast:
+	$(MAKE) -f CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+.PHONY : std_msgs_generate_messages_nodejs/fast
+
+#=============================================================================
+# Target rules for targets named clean_test_results
+
+# Build rule for target.
+clean_test_results: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 clean_test_results
+.PHONY : clean_test_results
+
+# fast build rule for target.
+clean_test_results/fast:
+	$(MAKE) -f CMakeFiles/clean_test_results.dir/build.make CMakeFiles/clean_test_results.dir/build
+.PHONY : clean_test_results/fast
+
+#=============================================================================
+# Target rules for targets named doxygen
+
+# Build rule for target.
+doxygen: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doxygen
+.PHONY : doxygen
+
+# fast build rule for target.
+doxygen/fast:
+	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
+.PHONY : doxygen/fast
+
+#=============================================================================
+# Target rules for targets named run_tests
+
+# Build rule for target.
+run_tests: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 run_tests
+.PHONY : run_tests
+
+# fast build rule for target.
+run_tests/fast:
+	$(MAKE) -f CMakeFiles/run_tests.dir/build.make CMakeFiles/run_tests.dir/build
+.PHONY : run_tests/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_generate_messages
+
+# Build rule for target.
+simple_control_generate_messages: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_generate_messages
+.PHONY : simple_control_generate_messages
+
+# fast build rule for target.
+simple_control_generate_messages/fast:
+	$(MAKE) -f CMakeFiles/simple_control_generate_messages.dir/build.make CMakeFiles/simple_control_generate_messages.dir/build
+.PHONY : simple_control_generate_messages/fast
+
+#=============================================================================
+# Target rules for targets named _simple_control_generate_messages_check_deps_toggle_cage
+
+# Build rule for target.
+_simple_control_generate_messages_check_deps_toggle_cage: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 _simple_control_generate_messages_check_deps_toggle_cage
+.PHONY : _simple_control_generate_messages_check_deps_toggle_cage
+
+# fast build rule for target.
+_simple_control_generate_messages_check_deps_toggle_cage/fast:
+	$(MAKE) -f CMakeFiles/_simple_control_generate_messages_check_deps_toggle_cage.dir/build.make CMakeFiles/_simple_control_generate_messages_check_deps_toggle_cage.dir/build
+.PHONY : _simple_control_generate_messages_check_deps_toggle_cage/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_generate_messages_cpp
+
+# Build rule for target.
+simple_control_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_generate_messages_cpp
+.PHONY : simple_control_generate_messages_cpp
+
+# fast build rule for target.
+simple_control_generate_messages_cpp/fast:
+	$(MAKE) -f CMakeFiles/simple_control_generate_messages_cpp.dir/build.make CMakeFiles/simple_control_generate_messages_cpp.dir/build
+.PHONY : simple_control_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_gencpp
+
+# Build rule for target.
+simple_control_gencpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_gencpp
+.PHONY : simple_control_gencpp
+
+# fast build rule for target.
+simple_control_gencpp/fast:
+	$(MAKE) -f CMakeFiles/simple_control_gencpp.dir/build.make CMakeFiles/simple_control_gencpp.dir/build
+.PHONY : simple_control_gencpp/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_generate_messages_eus
+
+# Build rule for target.
+simple_control_generate_messages_eus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_generate_messages_eus
+.PHONY : simple_control_generate_messages_eus
+
+# fast build rule for target.
+simple_control_generate_messages_eus/fast:
+	$(MAKE) -f CMakeFiles/simple_control_generate_messages_eus.dir/build.make CMakeFiles/simple_control_generate_messages_eus.dir/build
+.PHONY : simple_control_generate_messages_eus/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_generate_messages_lisp
+
+# Build rule for target.
+simple_control_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_generate_messages_lisp
+.PHONY : simple_control_generate_messages_lisp
+
+# fast build rule for target.
+simple_control_generate_messages_lisp/fast:
+	$(MAKE) -f CMakeFiles/simple_control_generate_messages_lisp.dir/build.make CMakeFiles/simple_control_generate_messages_lisp.dir/build
+.PHONY : simple_control_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_geneus
+
+# Build rule for target.
+simple_control_geneus: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_geneus
+.PHONY : simple_control_geneus
+
+# fast build rule for target.
+simple_control_geneus/fast:
+	$(MAKE) -f CMakeFiles/simple_control_geneus.dir/build.make CMakeFiles/simple_control_geneus.dir/build
+.PHONY : simple_control_geneus/fast
+
+#=============================================================================
+# Target rules for targets named simple_control_genlisp
+
+# Build rule for target.
+simple_control_genlisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 simple_control_genlisp
+.PHONY : simple_control_genlisp
+
+# fast build rule for target.
+simple_control_genlisp/fast:
+	$(MAKE) -f CMakeFiles/simple_control_genlisp.dir/build.make CMakeFiles/simple_control_genlisp.dir/build
+.PHONY : simple_control_genlisp/fast
 
 #=============================================================================
 # Target rules for targets named gmock
@@ -356,20 +512,32 @@ help:
 	@echo "... install"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... test"
 	@echo "... install/local"
-	@echo "... list_install_components"
-	@echo "... install/strip"
-	@echo "... run_tests"
-	@echo "... clean_test_results"
-	@echo "... std_msgs_generate_messages_nodejs"
-	@echo "... std_msgs_generate_messages_py"
-	@echo "... tests"
-	@echo "... doxygen"
-	@echo "... std_msgs_generate_messages_cpp"
-	@echo "... std_msgs_generate_messages_eus"
-	@echo "... download_extra_data"
 	@echo "... std_msgs_generate_messages_lisp"
+	@echo "... std_msgs_generate_messages_eus"
+	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... simple_control_gennodejs"
+	@echo "... tests"
+	@echo "... download_extra_data"
+	@echo "... simple_control_generate_messages_py"
+	@echo "... simple_control_generate_messages_nodejs"
+	@echo "... std_msgs_generate_messages_py"
+	@echo "... install/strip"
+	@echo "... simple_control_genpy"
+	@echo "... std_msgs_generate_messages_nodejs"
+	@echo "... clean_test_results"
+	@echo "... doxygen"
+	@echo "... run_tests"
+	@echo "... simple_control_generate_messages"
+	@echo "... _simple_control_generate_messages_check_deps_toggle_cage"
+	@echo "... test"
+	@echo "... simple_control_generate_messages_cpp"
+	@echo "... simple_control_gencpp"
+	@echo "... list_install_components"
+	@echo "... simple_control_generate_messages_eus"
+	@echo "... simple_control_generate_messages_lisp"
+	@echo "... simple_control_geneus"
+	@echo "... simple_control_genlisp"
 	@echo "... gmock"
 	@echo "... gmock_main"
 	@echo "... gtest"

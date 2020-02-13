@@ -3,6 +3,6 @@ prefix=/home/robotclass/RoboticsForSWEs/fastsim/install
 Name: sensor_simulators
 Description: Description of sensor_simulators
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/robotclass/RoboticsForSWEs/fastsim/install/include
 Libs: -L/home/robotclass/RoboticsForSWEs/fastsim/install/lib 
 Requires: 

@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/share/roseus/ros/sensor_simulators/manifest.l

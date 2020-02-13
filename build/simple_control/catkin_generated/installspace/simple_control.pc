@@ -3,6 +3,6 @@ prefix=/home/robotclass/RoboticsForSWEs/fastsim/install
 Name: simple_control
 Description: Description of simple_control
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/robotclass/RoboticsForSWEs/fastsim/install/include
 Libs: -L/home/robotclass/RoboticsForSWEs/fastsim/install/lib 
 Requires: 
