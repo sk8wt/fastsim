@@ -10,6 +10,18 @@ project(simple_control)
 find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
+  geometry_msgs
+  message_generation
+)
+
+add_service_files(
+  FILES
+  toggle_cage.srv
+)
+
+generate_messages(
+  DEPENDENCIES
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions

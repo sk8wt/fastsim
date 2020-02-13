@@ -124,7 +124,43 @@ file(INSTALL DESTINATION "/home/robotclass/RoboticsForSWEs/fastsim/install" TYPE
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sensor_simulators/srv" TYPE FILE FILES "/home/robotclass/RoboticsForSWEs/fastsim/src/sensor_simulators/srv/calibrate.srv")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sensor_simulators/cmake" TYPE FILE FILES "/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/catkin_generated/installspace/sensor_simulators-msg-paths.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/include/sensor_simulators")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/share/roseus/ros/sensor_simulators")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/share/common-lisp/ros/sensor_simulators")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/share/gennodejs/ros/sensor_simulators")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  execute_process(COMMAND "/usr/bin/python2" -m compileall "/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/lib/python2.7/dist-packages/sensor_simulators")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/lib/python2.7/dist-packages/sensor_simulators")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/catkin_generated/installspace/sensor_simulators.pc")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/sensor_simulators/cmake" TYPE FILE FILES "/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/catkin_generated/installspace/sensor_simulators-msg-extras.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")

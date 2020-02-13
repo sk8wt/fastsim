@@ -7,6 +7,7 @@ from math import sqrt, pow
 from geometry_msgs.msg import Vector3
 from geometry_msgs.msg import PoseStamped
 from geometry_msgs.msg import Point
+from simple_control.srv import toggle_cage
 
 
 # A class to keep track of the quadrotors state
@@ -24,6 +25,7 @@ class StateAndSafety():
     # Give the simulation enough time to start
     time.sleep(10)
 
+    self.cage_is_on = True
     # Create the publisher and subscriber
     self.position_pub = rospy.Publisher('/uav/input/position', Vector3, queue_size=1)
     self.keyboard_sub = rospy.Subscriber('/keyboardmanager/position', Vector3, self.getKeyboardCommand, queue_size = 1)
@@ -31,6 +33,8 @@ class StateAndSafety():
     # TO BE COMPLETED AFTER CHECKPOINT 1
     # TODO: Add a position_sub that subscribes to the drones pose
     self.position_sub = rospy.Subscriber('/uav/sensors/gps', PoseStamped, self.getPoint, queue_size = 1)
+
+    self.service = rospy.Service('toggle_cage', toggle_cage, self.toggleCage)
 
    # Get the acceptance range
     self.acceptance_range = rospy.get_param("/state_safety_node/acceptance_range", 0.5)
@@ -77,6 +81,19 @@ class StateAndSafety():
       self.goal_cmd = copy.deepcopy(msg)
 
 
+
+  def toggleCage(self, request):
+    # If we want to turn the cage on
+    if request.cage_on == True:
+      self.cage_is_on = True
+      self.success = True
+    else:
+      self.cage_is_on = False
+      self.success = False
+    return True
+
+
+
   # TO BE COMPLETED AFTER CHECKPOINT 1
   # TODO: Add function to receive drone's position messages
 
@@ -96,9 +113,36 @@ class StateAndSafety():
     # Print the requested goal if the position changed
     if self.goal_changed:
       rospy.loginfo(str(rospy.get_name()) + ": Requested Position: " + self.goalToString(self.goal_cmd))
+      rospy.loginfo(str(rospy.get_name()) + ": New State: VERIFYING")
+      self.state = DroneState.VERIFYING
+      self.goal_changed = False
+
+
+  def processVerifying(self):
+    x = self.goal_cmd.x
+    y = self.goal_cmd.y
+    z = self.goal_cmd.z
+
+    cage_x = self.cage_x
+    cage_y = self.cage_y
+    cage_z = self.cage_z
+
+    if (not self.cage_is_on):
+      rospy.loginfo(str(rospy.get_name()) + ": Requested Position: " + self.goalToString(self.goal_cmd))
       rospy.loginfo(str(rospy.get_name()) + ": New State: MOVING")
       self.state = DroneState.MOVING
-      self.goal_changed = False
+      return 
+
+    if (cage_x[0] <= x <= cage_x[1] and cage_y[0] <= y <= cage_y[1] and 
+    cage_z[0] <= z <= cage_z[1]):
+      rospy.loginfo(str(rospy.get_name()) + ": Requested Position: " + self.goalToString(self.goal_cmd))
+      rospy.loginfo(str(rospy.get_name()) + ": New State: MOVING")
+      self.state = DroneState.MOVING
+    else: 
+      rospy.loginfo(str(rospy.get_name()) + ": Rejected Position: " + self.goalToString(self.goal_cmd))
+      rospy.loginfo(str(rospy.get_name()) + ": New State: HOVERING")
+      self.state = DroneState.HOVERING
+
 
 
   # This function is called when we are in the moving state
@@ -125,15 +169,17 @@ class StateAndSafety():
 
     # While ROS is still running
     while not rospy.is_shutdown():
-      # Publish the position
-      self.position_pub.publish(self.goal_cmd)
-
       # Check if the drone is in a moving state
       if self.state == DroneState.MOVING:
         self.processMoving()
+        # Publish the position
+        self.position_pub.publish(self.goal_cmd)
       # If we are hovering then accept keyboard commands
+      elif self.state == DroneState.VERIFYING: 
+        self.processVerifying()
       elif self.state == DroneState.HOVERING:
         self.processHovering()
+      
 
       # Sleep for the remainder of the loop
       rate.sleep()

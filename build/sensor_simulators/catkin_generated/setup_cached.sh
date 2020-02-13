@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/sensor_simulators/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/robotclass/RoboticsForSWEs/fastsim/src/sensor_simulators:$ROS_PACKAGE_PATH"
