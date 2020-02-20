@@ -76,7 +76,7 @@ class StateAndSafety():
   # Callback for the keyboard manager
   def getKeyboardCommand(self, msg):
     # Save the keygboard command
-    if self.state == DroneState.HOVERING:
+    if (self.state == DroneState.HOVERING):
       self.goal_changed = True
       self.goal_cmd = copy.deepcopy(msg)
 
