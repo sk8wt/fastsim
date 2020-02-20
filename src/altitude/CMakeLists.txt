@@ -14,6 +14,18 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
+add_message_files(
+  FILES
+  AltitudeStamped.msg
+)
+generate_messages(
+   DEPENDENCIES
+   std_msgs
+)
+catkin_package(
+  CATKIN_DEPENDS message_runtime 
+)
+
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
 
