@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude/share/gennodejs/ros/altitude/msg/AltitudeStamped.js

@@ -12,7 +12,7 @@ class Viewer():
     rospy.on_shutdown(self.shutdown_sequence)
 
     # Set the rate
-    self.rate = 24.0
+    self.rate = 1.0
     self.dt = 1.0 / self.rate
 
     # Create the position

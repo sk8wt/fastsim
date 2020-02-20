@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude/lib/pkgconfig/altitude.pc

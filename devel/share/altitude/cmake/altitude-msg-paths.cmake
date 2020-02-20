@@ -1,0 +1,1 @@
+/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude/share/altitude/cmake/altitude-msg-paths.cmake
