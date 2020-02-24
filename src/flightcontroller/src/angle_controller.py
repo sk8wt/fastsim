@@ -10,7 +10,6 @@ from pid_class import PID
 from rosgraph_msgs.msg import Clock
 from std_msgs.msg import String
 
-
 class AngleController():
 
   def __init__(self):
@@ -24,6 +23,9 @@ class AngleController():
     # Getting the PID parameters
     gains = rospy.get_param('/angle_controller_node/gains', {'p': 0.1, 'i': 0, 'd': 0})
     Kp, Ki, Kd = gains['p'], gains['i'], gains['d']
+
+    # Getting the yaw flag
+    self.no_yaw = rospy.get_param('/angle_controller_node/no_yaw', False)
 
     # Set the rate
     self.rate = 100.0
@@ -39,6 +41,8 @@ class AngleController():
     # Creating the PID's
     self.rollPID = PID(Kp, Ki, Kd, self.rate)
     self.pitchPID = PID(Kp, Ki, Kd, self.rate)
+    if self.no_yaw:
+      self.yaw_output = 0.0
     self.yawPID = PID(Kp, Ki, Kd, self.rate)
 
     # Create the setpoints
@@ -60,10 +64,17 @@ class AngleController():
     self.imu_sub = rospy.Subscriber("/uav/sensors/attitude", Vector3, self.euler_angle_callback)
     self.att_sub = rospy.Subscriber("/uav/input/attitude", Vector3, self.attitude_set_callback)
     self.thrust_sub = rospy.Subscriber("/uav/input/thrust", Float64, self.thrust_callback)
+    if self.no_yaw:
+      self.yaw_sub = rospy.Subscriber("/uav/input/yaw", Float64, self.set_yaw_output)
 
     # Run the communication node
     self.ControlLoop()
 
+  # This is the callback for the yaw subscriber
+  def set_yaw_output(self, msg):
+    #rospy.loginfo("Received yaw" + str(msg.data))
+    self.yaw_output = msg.data
+    
   # This is the main loop of this class
   def ControlLoop(self):
     # Set the rate
@@ -92,7 +103,12 @@ class AngleController():
         # Use a PID to calculate the rates you want to publish to maintain an angle
         roll_output = self.rollPID.get_output(self.roll_setpoint, self.roll_reading)
         pitch_output = self.pitchPID.get_output(self.pitch_setpoint, self.pitch_reading)
-        yaw_output = self.yawPID.get_output(self.yaw_setpoint, self.yaw_reading)
+        if self.no_yaw:
+          yaw_output = self.yaw_output
+          #rospy.loginfo("my output: " + str(yaw_output) + " old yaw:" + str(self.yawPID.get_output(self.yaw_setpoint, self.yaw_reading)))
+          
+        else:
+          yaw_output = self.yawPID.get_output(self.yaw_setpoint, self.yaw_reading)
 
         # Create the message
         msg.thrust = Vector3(0,0,self.thrust_setpoint)
