@@ -14,7 +14,7 @@ class AngleCalculator():
     rospy.on_shutdown(self.shutdown_sequence)
 
     # Set the rate
-    self.rate = 100.0
+    self.rate = 50.0
     self.dt = 1.0 / self.rate
 
     # Create the subscribers and publishers
@@ -28,7 +28,7 @@ class AngleCalculator():
   # This is the main loop of this class
   def Run(self):
      # Set the rate
-    rate = rospy.Rate(50)
+    rate = rospy.Rate(self.rate)
 
     # While running
     while not rospy.is_shutdown():
