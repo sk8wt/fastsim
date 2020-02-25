@@ -174,7 +174,6 @@ initPose_(7,0)
   timeLastReset_ = currentTime_;
 
   // Init main simulation loop at 2x framerate.
-  dt_secs=dt_secs * 10;
   simulationLoopTimer_ = node_.createWallTimer(ros::WallDuration(dt_secs/clockScale), &Uav_Dynamics::simulationLoopTimerCallback, this);
   simulationLoopTimer_.start();
 }
@@ -232,7 +231,7 @@ void Uav_Dynamics::simulationLoopTimerCallback(const ros::WallTimerEvent& event)
 
   // Update clockscale if necessary
   if (actualFps != -1 && actualFps < 1e3 && useSimTime_ && useAutomaticClockscale_) {
-     clockScale =  (actualFps / 10.0);
+     clockScale =  (actualFps / 55.0);
      simulationLoopTimer_.stop();
      simulationLoopTimer_.setPeriod(ros::WallDuration(dt_secs / clockScale));
      simulationLoopTimer_.start();

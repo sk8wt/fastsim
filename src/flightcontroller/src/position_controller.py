@@ -16,13 +16,13 @@ class PositionController():
   def __init__(self):
 
     # Allow the simulator to start
-    time.sleep(5)
+    time.sleep(1)
     
     # When this node shutsdown
     rospy.on_shutdown(self.shutdown_sequence)
 
     # Set the rate
-    self.rate = 50.0
+    self.rate = 100.0
     self.dt = 1.0 / self.rate
 
     # Getting the PID parameters
@@ -68,7 +68,7 @@ class PositionController():
   # This is the main loop of this class
   def ControlLoop(self):
     # Set the rate
-    rate = rospy.Rate(self.rate)
+    rate = rospy.Rate(1000)
 
     # Keep track how many loops have happend
     loop_counter = 0

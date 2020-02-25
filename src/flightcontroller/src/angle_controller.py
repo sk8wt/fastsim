@@ -15,7 +15,7 @@ class AngleController():
   def __init__(self):
 
     # Allow the simulator to start
-    time.sleep(5)
+    time.sleep(1)
 
     # Run the shutdown sequence on shutdown
     rospy.on_shutdown(self.shutdown_sequence)
@@ -28,7 +28,7 @@ class AngleController():
     self.no_yaw = rospy.get_param('/angle_controller_node/no_yaw', False)
 
     # Set the rate
-    self.rate = 50.0
+    self.rate = 100.0
     self.dt = 1.0 / self.rate
 
     # Display incoming parameters
@@ -78,7 +78,7 @@ class AngleController():
   # This is the main loop of this class
   def ControlLoop(self):
     # Set the rate
-    rate = rospy.Rate(self.rate)
+    rate = rospy.Rate(1000)
 
     # Keep track how many loops have happend
     loop_counter = 0

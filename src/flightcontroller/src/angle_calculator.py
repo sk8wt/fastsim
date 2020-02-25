@@ -14,7 +14,7 @@ class AngleCalculator():
     rospy.on_shutdown(self.shutdown_sequence)
 
     # Set the rate
-    self.rate = 50.0
+    self.rate = 100.0
     self.dt = 1.0 / self.rate
 
     # Create the subscribers and publishers
@@ -28,17 +28,10 @@ class AngleCalculator():
   # This is the main loop of this class
   def Run(self):
      # Set the rate
-    rate = rospy.Rate(self.rate)
+    rate = rospy.Rate(1000)
 
     # While running
     while not rospy.is_shutdown():
-
-      # Convert quaternion to euler
-      euler = euler_from_quaternion(self.quarternion_pose)
-      # Publish the Euler Angle
-      msg = Vector3(euler[0], euler[1], euler[2])
-      self.att_pub.publish(msg)
-
       # Sleep any excess time
       rate.sleep()
 
@@ -46,7 +39,12 @@ class AngleCalculator():
   # Call back to get the GPS data
   def imu_callback(self, gps_msg):
     # Get the quarternion message
-    self.quarternion_pose = (gps_msg.orientation.x,gps_msg.orientation.y,gps_msg.orientation.z,gps_msg.orientation.w)
+    quarternion_pose = (gps_msg.orientation.x,gps_msg.orientation.y,gps_msg.orientation.z,gps_msg.orientation.w)
+    # Convert quaternion to euler
+    euler = euler_from_quaternion(quarternion_pose)
+    # Publish the Euler Angle
+    msg = Vector3(euler[0], euler[1], euler[2])
+    self.att_pub.publish(msg)
 
 
   def shutdown_sequence(self):
