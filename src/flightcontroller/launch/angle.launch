@@ -15,7 +15,7 @@
     <param name="gains/p" type="double" value="3.0" />
     <param name="gains/i" type="double" value="0.0" />
     <param name="gains/d" type="double" value="0.2" />
-    <param name="no_yaw" type="bool" value="True" />
+    <param name="no_yaw" type="bool" value="False" />
   </node>
 
 </launch>
