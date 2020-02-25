@@ -28,7 +28,7 @@ class AngleController():
     self.no_yaw = rospy.get_param('/angle_controller_node/no_yaw', False)
 
     # Set the rate
-    self.rate = 50.0
+    self.rate = 100.0
     self.dt = 1.0 / self.rate
 
     # Display incoming parameters
@@ -78,7 +78,7 @@ class AngleController():
   # This is the main loop of this class
   def ControlLoop(self):
     # Set the rate
-    rate = rospy.Rate(self.rate)
+    rate = rospy.Rate(50)
 
     # Keep track how many loops have happend
     loop_counter = 0
