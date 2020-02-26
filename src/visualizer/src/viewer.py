@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 import rospy
-from geometry_msgs.msg import PoseStamped
+from geometry_msgs.msg import PoseStamped, Pose
 import matplotlib as mpl
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import pyplot as plt
+from tf.transformations import euler_from_quaternion
+from math import sin, cos, degrees
 
 class Viewer():
 
@@ -12,13 +14,14 @@ class Viewer():
     rospy.on_shutdown(self.shutdown_sequence)
 
     # Set the rate
-    self.rate = 24.0
+    self.rate = 1.0
     self.dt = 1.0 / self.rate
 
     # Create the position
     self.x = 0
     self.y = 0
     self.z = 0
+    self.quaternion = (0, 0, 0, 0)
 
     self.fig = plt.figure()
     self.ax = self.fig.gca(projection='3d')
@@ -56,6 +59,11 @@ class Viewer():
     self.y = msg.pose.position.y
     self.z = msg.pose.position.z
 
+    self.quaternion = (msg.pose.orientation.x,
+                       msg.pose.orientation.y,
+                       msg.pose.orientation.z,
+                       msg.pose.orientation.w)
+
 
 	# Called on ROS shutdown
   def shutdown_sequence(self):
@@ -67,6 +75,13 @@ class Viewer():
     # self.ax.plot(data, 'o')
     # plt.plot(data, 'o')
     # # plt.draw()
+    euler = euler_from_quaternion(self.quaternion)
+    roll = euler[0]
+    pitch = euler[1]
+    yaw = euler[2]
+    new_x = sin(yaw)
+    new_y = cos(yaw)
+    print(degrees(yaw))
     
     # self.fig.canvas.draw()
     plt.cla()
@@ -78,6 +93,7 @@ class Viewer():
     self.ax.set_ylabel("Y Axis")
     self.ax.set_zlabel("Z Axis")
     self.ax.scatter(self.x, self.y, self.z)
+    self.ax.quiver(0, 0, 0, new_x, new_y, 0, color='r')
     plt.draw()
     plt.pause(0.05)
 
