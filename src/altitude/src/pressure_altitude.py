@@ -12,16 +12,17 @@ class PressureAltitude():
         # subscriber callback
         self.altitude = AltitudeStamped()
         # Create the publisher 
-        self.altitude_pub = #TODO
+        self.altitude_pub = rospy.Publisher('/uav/sensors/pressure_altitude', AltitudeStamped, queue_size=1)
         # Create the subscriber
-        self.pressure_sub = #TODO
+        self.pressure_sub = rospy.Subscriber('/uav/sensors/pressure', AltitudeStamped, self.set_altitude, queue_size=1)
+
         rospy.spin()
         
     # Callback function to calculate the pressure altitude and publish the message
     def set_altitude(self, msg):
         # TODO update self.altitude message with the pressure altitude calculated
         # from the pressure in msg, and with current time stamp
-        self.altitude.value = #TODO 
+        self.altitude.value = (1 - pow(msg.pressure/1013.25, 0.190284)) * 145366.45 * 0.3048 
         self.altitude.stamp =  rospy.get_rostime()
         self.altitude_pub.publish(self.altitude)
 

@@ -1,0 +1,12 @@
+make[2]: *** No rule to make target '/usr/lib/x86_64-linux-gnu/libSDLmain.a', needed by '/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/keyboard/lib/keyboard/keyboard'.  Stop.
+make[2]: *** Waiting for unfinished jobs....
+In file included from [01m[K/home/robotclass/RoboticsForSWEs/fastsim/src/ros-keyboard/src/keyboard.cpp:1:0[m[K:
+[01m[K/home/robotclass/RoboticsForSWEs/fastsim/src/ros-keyboard/src/keyboard.h:5:17:[m[K [01;31m[Kfatal error: [m[KSDL.h: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/keyboard.dir/src/keyboard.cpp.o] Error 1
+In file included from [01m[K/home/robotclass/RoboticsForSWEs/fastsim/src/ros-keyboard/src/main.cpp:3:0[m[K:
+[01m[K/home/robotclass/RoboticsForSWEs/fastsim/src/ros-keyboard/src/keyboard.h:5:17:[m[K [01;31m[Kfatal error: [m[KSDL.h: No such file or directory
+compilation terminated.
+make[2]: *** [CMakeFiles/keyboard.dir/src/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/keyboard.dir/all] Error 2
+make: *** [all] Error 2

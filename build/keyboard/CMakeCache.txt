@@ -509,7 +509,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python2][v2.7.12()]
 //Details about finding SDL
-FIND_PACKAGE_MESSAGE_DETAILS_SDL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libSDLmain.a;/usr/lib/x86_64-linux-gnu/libSDL.so;-lpthread][/usr/include/SDL][v1.2.15()]
+FIND_PACKAGE_MESSAGE_DETAILS_SDL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libSDLmain.a;/usr/lib/x86_64-linux-gnu/libSDL.so;-lpthread][/usr/include/SDL][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 GMOCK_FROM_SOURCE_FOUND:INTERNAL=TRUE
@@ -538,5 +538,5 @@ PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
 //  And it needs to match.  But setuptools won't tell us where
 // it will install things.
 PYTHON_INSTALL_DIR:INTERNAL=lib/python2.7/dist-packages
-SDL_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDLmain.a;/usr/lib/x86_64-linux-gnu/libSDL.so;-lpthread
+SDL_LIBRARY_TEMP:INTERNAL=/usr/lib/x86_64-linux-gnu/libSDLmain.a;/usr/lib/x86_64-linux-gnu/libSDL.so;-lpthread;-lpthread
 

@@ -8,6 +8,8 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/visualizer:$CMAKE_PREFIX_PATH"
+export LD_LIBRARY_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/visualizer/lib:$LD_LIBRARY_PATH"
+export PKG_CONFIG_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/visualizer/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/robotclass/RoboticsForSWEs/fastsim/build/visualizer"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/visualizer/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/robotclass/RoboticsForSWEs/fastsim/src/visualizer:$ROS_PACKAGE_PATH"
