@@ -39,5 +39,10 @@
         <param name="pressure_window_size" type="int" value="5"/>
   </node>
   <node name="altitude_ma" pkg="altitude" type="altitude_ma.py" output="screen"/>
-
+  <node name="kalman_filter_node" pkg="altitude" type="kalman_filter.py" output="screen">
+    <param name="process_variance" type="int" value="100" />
+    <param name="gps_variance" type="double" value="0.1" />
+    <param name="pressure_variance" type="double" value="0.1" />
+    <param name="velocity_variance" type="double" value="0.1" />
+  </node>
 </launch>

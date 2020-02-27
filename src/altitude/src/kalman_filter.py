@@ -2,7 +2,7 @@
 
 import rospy
 from geometry_msgs.msg import TwistStamped
-from altitude.msg import PressureAltitudeStamped
+from altitude.msg import AltitudeStamped
 
 import numpy as np
 from Queue import LifoQueue
@@ -29,22 +29,22 @@ class KalmanFilter():
         self.gps_variance = rospy.get_param("/kalman_filter_node/gps_variance", 0.1)
         # the variance used in the matrix R of the pressure altitude measurements
         self.pressure_variance = rospy.get_param("/kalman_filter_node/pressure_variance", 0.1)
-        $ the variance used in the matrix R of the vertical velocity measurements
+        #  the variance used in the matrix R of the vertical velocity measurements
         self.velocity_variance = rospy.get_param("/kalman_filter_node/velocity_variance", 0.1)
         
         self.queue = LifoQueue()
 
         self.sub_pa = rospy.Subscriber('/uav/sensors/pressure_altitude',
-                                      PressureAltitudeStamped, self.process_pressure_altitude,
+                                      AltitudeStamped, self.process_pressure_altitude,
                                       queue_size = 1)
         self.sub_gps_a = rospy.Subscriber('/uav/sensors/gps_altitude',
-                                      PressureAltitudeStamped, self.process_gps_altitude,
+                                      AltitudeStamped, self.process_gps_altitude,
                                       queue_size = 1)
         self.sub_vel = rospy.Subscriber('/uav/sensors/velocity',
                                       TwistStamped, self.process_velocity,
                                       queue_size = 1)
         self.pub =  rospy.Publisher('/uav/sensors/kalman_filter_altitude',
-                                   PressureAltitudeStamped,
+                                   AltitudeStamped,
                                    queue_size=1)
         self.mainloop()
 
@@ -121,14 +121,14 @@ class KalmanFilter():
                     # TODO: initialize R for the measurement type
 		    R_gps = np.zeros((1,1), dtype=float)
 		    R_pressure = np.zeros((1,1), dtype=float)
-		    R_vel = np.zeroes((1,1), dtype=float)
+		    R_vel = np.zeros((1,1), dtype=float)
 			
                     # TODO: initialize the measurement z
                     z = np.zeros((1,1), dtype=float)
                    
 		    if measurement.measurement_type == MeasurementType.VELOCITY:
 		    	R_vel[0][0] = self.velocity_variance
-                    	z[0] = measurement.twist.linear.z
+                    	z[0] = measurement.value
 			
 			y = np.subtract(z, np.matmul(H_vel, x))
 			S = np.add(np.matmul(np.matmul(H_vel,P), np.transpose(H_vel)),R_vel)
@@ -145,7 +145,7 @@ class KalmanFilter():
  			x = np.add(x, np.matmul(K, y))
 			P = np.matmul(np.subtract(I, np.matmul(K, H_gps)), P)
 		    else: 			
-		    	R_gps[0[0] = self.gps_variance
+		    	R_gps[0][0] = self.gps_variance
 			z[0] = measurement.value
 			
 			y = np.subtract(z, np.matmul(H_gps, x))
@@ -164,7 +164,7 @@ class KalmanFilter():
                 self.last_timestamp = measurement.timestamp
                     
                 # publish message
-                msg = PressureAltitudeStamped()
+                msg = AltitudeStamped()
                 msg.value = x[0]
                 msg.stamp = self.last_timestamp
                 self.pub.publish(msg)
