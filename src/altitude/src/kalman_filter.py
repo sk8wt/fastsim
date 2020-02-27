@@ -93,43 +93,65 @@ class KalmanFilter():
                     ########### predict step
                     delta_t = (measurement.timestamp - self.last_timestamp).to_sec()
                     # TODO: initialize matrices F and Q which depend on the delta_t
-           		F[0][1] = delta_t
-			F[1][0] = 0
+           	    F[0][1] = delta_t
+		    F[1][0] = 0
          
                     # TODO: update the state and the process matrix 
 
-			Q[0][0] = (pow(delta_t, 4)) / 4.0
-			Q[0][1] = (pow(delta_t, 3)) / 2.0 
-			Q[1][0] = (pow(delta_t, 3)) / 2.0
-			Q[1][1] = (pow(delta_t, 2)) 
+		    Q[0][0] = (pow(delta_t, 4)) / 4.0
+		    Q[0][1] = (pow(delta_t, 3)) / 2.0 
+		    Q[1][0] = (pow(delta_t, 3)) / 2.0
+		    Q[1][1] = (pow(delta_t, 2)) 
 
-			x = np.matmul(F, x)
-			P = np.add(np.matmul(np.matmul(F,P), np.transpose(F)),Q)
+		    Q = np.multiply(pow(self.process_variance,2), Q)
+
+		    x = np.matmul(F, x)
+		    P = np.add(np.matmul(np.matmul(F,P), np.transpose(F)),Q)
 
                     ########### update step
                     # TODO: initialize H for the measurement type
-			H_gps = np.zeros((1,2), dtype=float)
-			H_gps[0][0] = 1.0
-			H_gps[0][1] = 0.0
+		    H_gps = np.zeros((1,2), dtype=float)
+		    H_gps[0][0] = 1.0
+		    H_gps[0][1] = 0.0
 
-			H_vel = np.zeros((1,2), dtype=float)
-			H_vel[0][0] = 0.0
-			H_vel[0][1] = 1.0
+		    H_vel = np.zeros((1,2), dtype=float)
+		    H_vel[0][0] = 0.0
+		    H_vel[0][1] = 1.0
 
                     # TODO: initialize R for the measurement type
-			R_gps = np.zeros((1,1), dtype=float)
-			R_gps[0[0] = self.gps_variance
-
-			R_pressure = np.zeros((1,1), dtype=float)
-			R_pressure[0][0] = self.pressure_variance
-
-			R_vel = np.zeroes((1,1), dtype=float)
-			R_vel[0][0] = self.velocity_variance
+		    R_gps = np.zeros((1,1), dtype=float)
+		    R_pressure = np.zeros((1,1), dtype=float)
+		    R_vel = np.zeroes((1,1), dtype=float)
 			
                     # TODO: initialize the measurement z
                     z = np.zeros((1,1), dtype=float)
-                    z[0] = #TODO
-                    # TODO: implement the update equations 
+                   
+		    if measurement.measurement_type == MeasurementType.VELOCITY:
+		    	R_vel[0][0] = self.velocity_variance
+                    	z[0] = measurement.twist.linear.z
+			
+			y = np.subtract(z, np.matmul(H_vel, x))
+			S = np.add(np.matmul(np.matmul(H_vel,P), np.transpose(H_vel)),R_vel)
+                        K = np.matmul(np.matmul(P, np.transpose(H_vel)),np.linalg.inv(S))
+
+	   	    elif measurement.measurement_type == MeasurementType.PRESSURE_ALTITUDE: 
+		    	R_pressure[0][0] = self.pressure_variance
+			z[0] = measurement.value
+		
+			y = np.subtract(z, np.matmul(H_gps, x))
+			S = np.add(np.matmul(np.matmul(H_gps,P), np.transpose(H_gps)),R_pressure)
+                        K = np.matmul(np.matmul(P, np.transpose(H_gps)),np.linalg.inv(S))
+
+		    else: 			
+		    	R_gps[0[0] = self.gps_variance
+			z[0] = measurement.value
+			
+			y = np.subtract(z, np.matmul(H_gps, x))
+                   	S = np.add(np.matmul(np.matmul(H_gps,P), np.transpose(H_gps)),R_gps)
+			K = np.matmul(np.matmul(P, np.transpose(H_gps)),np.linalg.inv(S))
+ 			x = np.add(x, np.matmul(K, y))
+                
+		    # TODO: implement the update equations 
                 else:
                     # first measurement
                     if measurement.measurement_type == MeasurementType.VELOCITY:
