@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_fa3d3/fast"
-/usr/bin/make -f CMakeFiles/cmTC_fa3d3.dir/build.make CMakeFiles/cmTC_fa3d3.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_62094/fast"
+/usr/bin/make -f CMakeFiles/cmTC_62094.dir/build.make CMakeFiles/cmTC_62094.dir/build
 make[1]: Entering directory '/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_fa3d3.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_fa3d3.dir/CheckSymbolExists.c.o   -c /home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_fa3d3
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fa3d3.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_fa3d3.dir/CheckSymbolExists.c.o  -o cmTC_fa3d3 -rdynamic 
-CMakeFiles/cmTC_fa3d3.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_62094.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_62094.dir/CheckSymbolExists.c.o   -c /home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_62094
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_62094.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_62094.dir/CheckSymbolExists.c.o  -o cmTC_62094 -rdynamic 
+CMakeFiles/cmTC_62094.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_fa3d3.dir/build.make:97: recipe for target 'cmTC_fa3d3' failed
-make[1]: *** [cmTC_fa3d3] Error 1
+CMakeFiles/cmTC_62094.dir/build.make:97: recipe for target 'cmTC_62094' failed
+make[1]: *** [cmTC_62094] Error 1
 make[1]: Leaving directory '/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_fa3d3/fast' failed
-make: *** [cmTC_fa3d3/fast] Error 2
+Makefile:126: recipe for target 'cmTC_62094/fast' failed
+make: *** [cmTC_62094/fast] Error 2
 
 File /home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_bce4b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_bce4b.dir/build.make CMakeFiles/cmTC_bce4b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_c1690/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c1690.dir/build.make CMakeFiles/cmTC_c1690.dir/build
 make[1]: Entering directory '/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_bce4b.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_bce4b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_bce4b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bce4b.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_bce4b.dir/CheckFunctionExists.c.o  -o cmTC_bce4b -rdynamic -lpthreads 
+Building C object CMakeFiles/cmTC_c1690.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_c1690.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c1690
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c1690.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_c1690.dir/CheckFunctionExists.c.o  -o cmTC_c1690 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_bce4b.dir/build.make:97: recipe for target 'cmTC_bce4b' failed
-make[1]: *** [cmTC_bce4b] Error 1
+CMakeFiles/cmTC_c1690.dir/build.make:97: recipe for target 'cmTC_c1690' failed
+make[1]: *** [cmTC_c1690] Error 1
 make[1]: Leaving directory '/home/robotclass/RoboticsForSWEs/fastsim/build/sensor_simulators/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_bce4b/fast' failed
-make: *** [cmTC_bce4b/fast] Error 2
+Makefile:126: recipe for target 'cmTC_c1690/fast' failed
+make: *** [cmTC_c1690/fast] Error 2
 
 

@@ -8,9 +8,6 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/keyboard:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/keyboard/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/keyboard/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/robotclass/RoboticsForSWEs/fastsim/build/keyboard"
-export PYTHONPATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/keyboard/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/keyboard/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/robotclass/RoboticsForSWEs/fastsim/src/ros-keyboard:$ROS_PACKAGE_PATH"

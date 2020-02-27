@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_7d3f4/fast"
-/usr/bin/make -f CMakeFiles/cmTC_7d3f4.dir/build.make CMakeFiles/cmTC_7d3f4.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_778ef/fast"
+/usr/bin/make -f CMakeFiles/cmTC_778ef.dir/build.make CMakeFiles/cmTC_778ef.dir/build
 make[1]: Entering directory '/home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7d3f4.dir/CheckSymbolExists.c.o
-/usr/bin/cc     -o CMakeFiles/cmTC_7d3f4.dir/CheckSymbolExists.c.o   -c /home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_7d3f4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d3f4.dir/link.txt --verbose=1
-/usr/bin/cc       CMakeFiles/cmTC_7d3f4.dir/CheckSymbolExists.c.o  -o cmTC_7d3f4 -rdynamic 
-CMakeFiles/cmTC_7d3f4.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_778ef.dir/CheckSymbolExists.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_778ef.dir/CheckSymbolExists.c.o   -c /home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_778ef
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_778ef.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_778ef.dir/CheckSymbolExists.c.o  -o cmTC_778ef -rdynamic 
+CMakeFiles/cmTC_778ef.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x16): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_7d3f4.dir/build.make:97: recipe for target 'cmTC_7d3f4' failed
-make[1]: *** [cmTC_7d3f4] Error 1
+CMakeFiles/cmTC_778ef.dir/build.make:97: recipe for target 'cmTC_778ef' failed
+make[1]: *** [cmTC_778ef] Error 1
 make[1]: Leaving directory '/home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_7d3f4/fast' failed
-make: *** [cmTC_7d3f4/fast] Error 2
+Makefile:126: recipe for target 'cmTC_778ef/fast' failed
+make: *** [cmTC_778ef/fast] Error 2
 
 File /home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6d167/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6d167.dir/build.make CMakeFiles/cmTC_6d167.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_1fa85/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1fa85.dir/build.make CMakeFiles/cmTC_1fa85.dir/build
 make[1]: Entering directory '/home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_6d167.dir/CheckFunctionExists.c.o
-/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_6d167.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
-Linking C executable cmTC_6d167
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6d167.dir/link.txt --verbose=1
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_6d167.dir/CheckFunctionExists.c.o  -o cmTC_6d167 -rdynamic -lpthreads 
+Building C object CMakeFiles/cmTC_1fa85.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1fa85.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1fa85
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1fa85.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1fa85.dir/CheckFunctionExists.c.o  -o cmTC_1fa85 -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_6d167.dir/build.make:97: recipe for target 'cmTC_6d167' failed
-make[1]: *** [cmTC_6d167] Error 1
+CMakeFiles/cmTC_1fa85.dir/build.make:97: recipe for target 'cmTC_1fa85' failed
+make[1]: *** [cmTC_1fa85] Error 1
 make[1]: Leaving directory '/home/robotclass/RoboticsForSWEs/fastsim/build/keyboard/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_6d167/fast' failed
-make: *** [cmTC_6d167/fast] Error 2
+Makefile:126: recipe for target 'cmTC_1fa85/fast' failed
+make: *** [cmTC_1fa85/fast] Error 2
 
 

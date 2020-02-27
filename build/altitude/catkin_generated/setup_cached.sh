@@ -8,9 +8,6 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/robotclass/RoboticsForSWEs/fastsim/build/altitude"
-export PYTHONPATH="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude/lib/python2.7/dist-packages:$PYTHONPATH"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/robotclass/RoboticsForSWEs/fastsim/devel/.private/altitude/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/robotclass/RoboticsForSWEs/fastsim/src/altitude:$ROS_PACKAGE_PATH"
