@@ -134,6 +134,7 @@ class KalmanFilter():
 			S = np.add(np.matmul(np.matmul(H_vel,P), np.transpose(H_vel)),R_vel)
                         K = np.matmul(np.matmul(P, np.transpose(H_vel)),np.linalg.inv(S))
  			x = np.add(x, np.matmul(K, y))
+			P = np.matmul(np.subtract(I, np.matmul(K, H_vel)), P)
 	   	    elif measurement.measurement_type == MeasurementType.PRESSURE_ALTITUDE: 
 		    	R_pressure[0][0] = self.pressure_variance
 			z[0] = measurement.value
@@ -142,6 +143,7 @@ class KalmanFilter():
 			S = np.add(np.matmul(np.matmul(H_gps,P), np.transpose(H_gps)),R_pressure)
                         K = np.matmul(np.matmul(P, np.transpose(H_gps)),np.linalg.inv(S))
  			x = np.add(x, np.matmul(K, y))
+			P = np.matmul(np.subtract(I, np.matmul(K, H_gps)), P)
 		    else: 			
 		    	R_gps[0[0] = self.gps_variance
 			z[0] = measurement.value
@@ -150,7 +152,7 @@ class KalmanFilter():
                    	S = np.add(np.matmul(np.matmul(H_gps,P), np.transpose(H_gps)),R_gps)
 			K = np.matmul(np.matmul(P, np.transpose(H_gps)),np.linalg.inv(S))
  			x = np.add(x, np.matmul(K, y))
-                
+			P = np.matmul(np.subtract(I, np.matmul(K, H_gps)), P)
 		    # TODO: implement the update equations 
                 else:
                     # first measurement
