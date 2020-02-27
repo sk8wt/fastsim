@@ -35,7 +35,7 @@ class PositionController():
     Kd = Kd_s
 
     # Display incoming parameters
-    rospy.loginfo(str(rospy.get_name()) + ": Lauching with the following parameters:")
+    rospy.loginfo(str(rospy.get_name()) + ": Launching with the following parameters:")
     rospy.loginfo(str(rospy.get_name()) + ": p - " + str(Kp))
     rospy.loginfo(str(rospy.get_name()) + ": i - " + str(Ki))
     rospy.loginfo(str(rospy.get_name()) + ": d - " + str(Kd))

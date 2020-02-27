@@ -33,7 +33,7 @@ class AngleController():
     self.dt = 1.0 / self.rate
 
     # Display incoming parameters
-    rospy.loginfo(str(rospy.get_name()) + ": Lauching with the following parameters:")
+    rospy.loginfo(str(rospy.get_name()) + ": Launching with the following parameters:")
     rospy.loginfo(str(rospy.get_name()) + ": p - " + str(Kp))
     rospy.loginfo(str(rospy.get_name()) + ": i - " + str(Ki))
     rospy.loginfo(str(rospy.get_name()) + ": d - " + str(Kd))
@@ -95,8 +95,8 @@ class AngleController():
       if self.armed == False:
 
         # Arm the drone
-        msg.thrust = Vector3(0,0,10)
-        msg.angular_rates = Vector3(0,0,0)   
+        msg.thrust = Vector3(0, 0, 10)
+        msg.angular_rates = Vector3(0, 0, 0)   
         self.armed = True 
 
       # Behave normally
@@ -112,7 +112,7 @@ class AngleController():
           yaw_output = self.yawPID.get_output(self.yaw_setpoint, self.yaw_reading)
 
         # Create the message
-        msg.thrust = Vector3(0,0,self.thrust_setpoint)
+        msg.thrust = Vector3(0, 0, self.thrust_setpoint)
         msg.angular_rates = Vector3(roll_output, pitch_output, yaw_output)
 
       # Publish the message

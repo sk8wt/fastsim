@@ -81,7 +81,6 @@ class Viewer():
     yaw = euler[2]
     new_x = sin(yaw)
     new_y = cos(yaw)
-    print(degrees(yaw))
     
     # self.fig.canvas.draw()
     plt.cla()
@@ -92,8 +91,7 @@ class Viewer():
     self.ax.set_xlabel("X Axis")
     self.ax.set_ylabel("Y Axis")
     self.ax.set_zlabel("Z Axis")
-    self.ax.scatter(self.x, self.y, self.z)
-    self.ax.quiver(0, 0, 0, new_x, new_y, 0, color='r')
+    self.ax.quiver(self.x, self.y, self.z, new_x, new_y, 0, color='r')
     plt.draw()
     plt.pause(0.05)
 
