@@ -133,7 +133,7 @@ class KalmanFilter():
 			y = np.subtract(z, np.matmul(H_vel, x))
 			S = np.add(np.matmul(np.matmul(H_vel,P), np.transpose(H_vel)),R_vel)
                         K = np.matmul(np.matmul(P, np.transpose(H_vel)),np.linalg.inv(S))
-
+ 			x = np.add(x, np.matmul(K, y))
 	   	    elif measurement.measurement_type == MeasurementType.PRESSURE_ALTITUDE: 
 		    	R_pressure[0][0] = self.pressure_variance
 			z[0] = measurement.value
@@ -141,7 +141,7 @@ class KalmanFilter():
 			y = np.subtract(z, np.matmul(H_gps, x))
 			S = np.add(np.matmul(np.matmul(H_gps,P), np.transpose(H_gps)),R_pressure)
                         K = np.matmul(np.matmul(P, np.transpose(H_gps)),np.linalg.inv(S))
-
+ 			x = np.add(x, np.matmul(K, y))
 		    else: 			
 		    	R_gps[0[0] = self.gps_variance
 			z[0] = measurement.value
