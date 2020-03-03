@@ -14,6 +14,15 @@ find_package(catkin REQUIRED COMPONENTS
   message_generation
 )
 
+if (CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest(tests/params.launch)
+  add_rostest(tests/hztest.launch)
+  add_rostest(tests/p.launch)
+  add_rostest(tests/i.launch)
+  add_rostest(tests/d.launch)
+endif()
+
 add_service_files(
   FILES
   toggle_cage.srv
