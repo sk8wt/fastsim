@@ -1,0 +1,347 @@
+rostest src/simple_control/tests/params.launch
+... logging to /home/robotclass/.ros/log/rostest-robotclass-3466.log
+[ROSUNIT] Outputting test results to /home/robotclass/.ros/test_results/simple_control/rostest-tests_params.xml
+Did not get the angular process noise from the params, defaulting to 0.00025 rad^2/s^2
+Did not get the linear process noise from the params, defaulting to 0.0005 m^2/s^3
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/altitude/src/kalman.py", line 3, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 47, in <module>
+    from std_msgs.msg import Header
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/__init__.py", line 1, in <module>
+    from ._Bool import *
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py", line 5, in <module>
+    import genpy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/__init__.py", line 34, in <module>
+    from . message import Message, SerializationError, DeserializationError, MessageException, struct_I
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 44, in <module>
+    import yaml
+  File "/usr/lib/python2.7/dist-packages/yaml/__init__.py", line 8, in <module>
+    from loader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/loader.py", line 4, in <module>
+    from reader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 47, in <module>
+    class Reader(object):
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 140, in Reader
+    NON_PRINTABLE = re.compile(u'[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD\U00010000-\U0010ffff]')
+  File "/usr/lib/python2.7/re.py", line 194, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python2.7/re.py", line 249, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 576, in compile
+    code = _code(p, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 558, in _code
+    _compile_info(code, p, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 536, in _compile_info
+    _compile_charset(charset, flags, code)
+  File "/usr/lib/python2.7/sre_compile.py", line 232, in _compile_charset
+    flags & SRE_FLAG_UNICODE):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/altitude/src/moving_average_gps.py", line 2, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 47, in <module>
+    from std_msgs.msg import Header
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/__init__.py", line 1, in <module>
+    from ._Bool import *
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py", line 5, in <module>
+    import genpy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/__init__.py", line 34, in <module>
+    from . message import Message, SerializationError, DeserializationError, MessageException, struct_I
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 46, in <module>
+    import genmsg
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genmsg/__init__.py", line 33, in <module>
+    from . base import MSG_DIR, SRV_DIR, EXT_MSG, EXT_SRV, SEP, log, plog, InvalidMsgSpec, log_verbose, MsgGenerationException
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genmsg/base.py", line 52, in <module>
+    import inspect, pprint
+  File "/usr/lib/python2.7/inspect.py", line 802, in <module>
+    ArgSpec = namedtuple('ArgSpec', 'args varargs keywords defaults')
+  File "/usr/lib/python2.7/collections.py", line 386, in namedtuple
+    exec class_definition in namespace
+  File "<string>", line 1, in <module>
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/altitude/src/pressure_altitude_node.py", line 2, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 47, in <module>
+    from std_msgs.msg import Header
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/__init__.py", line 1, in <module>
+    from ._Bool import *
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py", line 5, in <module>
+    import genpy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/__init__.py", line 34, in <module>
+    from . message import Message, SerializationError, DeserializationError, MessageException, struct_I
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 44, in <module>
+    import yaml
+  File "/usr/lib/python2.7/dist-packages/yaml/__init__.py", line 8, in <module>
+    from loader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/loader.py", line 4, in <module>
+    from reader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 47, in <module>
+    class Reader(object):
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 140, in Reader
+    NON_PRINTABLE = re.compile(u'[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD\U00010000-\U0010ffff]')
+  File "/usr/lib/python2.7/re.py", line 194, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python2.7/re.py", line 249, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 576, in compile
+    code = _code(p, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 561, in _code
+    _compile(code, p.data, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 107, in _compile
+    _compile_charset(av, flags, code, fixup, fixes)
+  File "/usr/lib/python2.7/sre_compile.py", line 232, in _compile_charset
+    flags & SRE_FLAG_UNICODE):
+KeyboardInterrupt
+Traceback (most recent call last):
+Did not value for reset timeout from the params, defaulting to 0.1 sec
+  File "/home/robotclass/Desktop/work/fastersim/src/altitude/src/fusion.py", line 2, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 47, in <module>
+    from std_msgs.msg import Header
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/__init__.py", line 1, in <module>
+    from ._Bool import *
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py", line 5, in <module>
+    import genpy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/__init__.py", line 34, in <module>
+    from . message import Message, SerializationError, DeserializationError, MessageException, struct_I
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 44, in <module>
+    import yaml
+  File "/usr/lib/python2.7/dist-packages/yaml/__init__.py", line 8, in <module>
+    from loader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/loader.py", line 4, in <module>
+    from reader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 47, in <module>
+    class Reader(object):
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 140, in Reader
+    NON_PRINTABLE = re.compile(u'[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD\U00010000-\U0010ffff]')
+  File "/usr/lib/python2.7/re.py", line 194, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python2.7/re.py", line 249, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 576, in compile
+    code = _code(p, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 558, in _code
+    _compile_info(code, p, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 536, in _compile_info
+    _compile_charset(charset, flags, code)
+  File "/usr/lib/python2.7/sre_compile.py", line 232, in _compile_charset
+    flags & SRE_FLAG_UNICODE):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/simple_control/src/keyboard_manager.py", line 2, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 49, in <module>
+    from .client import spin, myargv, init_node, \
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/client.py", line 52, in <module>
+    import roslib
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/__init__.py", line 54, in <module>
+    import roslib.stacks
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/stacks.py", line 46, in <module>
+    import roslib.packages
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/packages.py", line 49, in <module>
+    from catkin.find_in_workspaces import find_in_workspaces as catkin_find
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/catkin/find_in_workspaces.py", line 36, in <module>
+    from catkin_pkg.packages import find_packages
+  File "/usr/lib/python2.7/dist-packages/catkin_pkg/packages.py", line 38, in <module>
+    from .package import _get_package_xml
+  File "/usr/lib/python2.7/dist-packages/catkin_pkg/package.py", line 43, in <module>
+    from catkin_pkg.condition import evaluate_condition
+  File "/usr/lib/python2.7/dist-packages/catkin_pkg/condition.py", line 17, in <module>
+    import pyparsing
+  File "/usr/lib/python2.7/dist-packages/pyparsing.py", line 58, in <module>
+    """
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/altitude/src/moving_average_pressure.py", line 2, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 47, in <module>
+    from std_msgs.msg import Header
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/__init__.py", line 1, in <module>
+    from ._Bool import *
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/std_msgs/msg/_Bool.py", line 5, in <module>
+    import genpy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/__init__.py", line 34, in <module>
+    from . message import Message, SerializationError, DeserializationError, MessageException, struct_I
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/genpy/message.py", line 44, in <module>
+    import yaml
+  File "/usr/lib/python2.7/dist-packages/yaml/__init__.py", line 8, in <module>
+    from loader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/loader.py", line 4, in <module>
+    from reader import *
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 47, in <module>
+    class Reader(object):
+  File "/usr/lib/python2.7/dist-packages/yaml/reader.py", line 140, in Reader
+    NON_PRINTABLE = re.compile(u'[^\x09\x0A\x0D\x20-\x7E\x85\xA0-\uD7FF\uE000-\uFFFD\U00010000-\U0010ffff]')
+  File "/usr/lib/python2.7/re.py", line 194, in compile
+    return _compile(pattern, flags)
+  File "/usr/lib/python2.7/re.py", line 249, in _compile
+    p = sre_compile.compile(pattern, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 576, in compile
+    code = _code(p, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 561, in _code
+    _compile(code, p.data, flags)
+  File "/usr/lib/python2.7/sre_compile.py", line 107, in _compile
+    _compile_charset(av, flags, code, fixup, fixes)
+  File "/usr/lib/python2.7/sre_compile.py", line 232, in _compile_charset
+    flags & SRE_FLAG_UNICODE):
+  File "/usr/lib/python2.7/sre_compile.py", line 274, in _optimize_charset
+    r = range(av[0], av[1]+1)
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/sensor_simulators/src/pressure.py", line 2, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 49, in <module>
+    from .client import spin, myargv, init_node, \
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/client.py", line 60, in <module>
+    import rospy.impl.init
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/init.py", line 54, in <module>
+    from .tcpros import init_tcpros
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros.py", line 45, in <module>
+    import rospy.impl.tcpros_service
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_service.py", line 54, in <module>
+    from rospy.impl.tcpros_base import TCPROSTransport, TCPROSTransportProtocol, \
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/impl/tcpros_base.py", line 35, in <module>
+    """Internal use: common TCPROS libraries"""
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/simple_control/src/state_and_safety.py", line 2, in <module>
+    import rospy
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/__init__.py", line 49, in <module>
+    from .client import spin, myargv, init_node, \
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/client.py", line 52, in <module>
+    import roslib
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/__init__.py", line 54, in <module>
+    import roslib.stacks
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/stacks.py", line 46, in <module>
+    import roslib.packages
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/packages.py", line 49, in <module>
+    from catkin.find_in_workspaces import find_in_workspaces as catkin_find
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/catkin/find_in_workspaces.py", line 36, in <module>
+    from catkin_pkg.packages import find_packages
+  File "/usr/lib/python2.7/dist-packages/catkin_pkg/packages.py", line 38, in <module>
+    from .package import _get_package_xml
+  File "/usr/lib/python2.7/dist-packages/catkin_pkg/package.py", line 43, in <module>
+    from catkin_pkg.condition import evaluate_condition
+  File "/usr/lib/python2.7/dist-packages/catkin_pkg/condition.py", line 17, in <module>
+    import pyparsing
+  File "/usr/lib/python2.7/dist-packages/pyparsing.py", line 699, in <module>
+    collections.MutableMapping.register(ParseResults)
+  File "/usr/lib/python2.7/abc.py", line 109, in register
+    if issubclass(subclass, cls):
+  File "/usr/lib/python2.7/abc.py", line 174, in __subclasscheck__
+    for rcls in cls._abc_registry:
+  File "/usr/lib/python2.7/_weakrefset.py", line 60, in __iter__
+    for itemref in self.data:
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/flightcontroller/src/angle_calculator.py", line 5, in <module>
+    from tf.transformations import euler_from_quaternion
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/tf/__init__.py", line 28, in <module>
+    from tf2_ros import TransformException as Exception, ConnectivityException, LookupException, ExtrapolationException
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/tf2_ros/__init__.py", line 39, in <module>
+    from .buffer_interface import *
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/tf2_ros/buffer_interface.py", line 32, in <module>
+    import roslib; roslib.load_manifest('tf2_ros')
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/launcher.py", line 62, in load_manifest
+    sys.path = _generate_python_path(package_name, _rospack) + sys.path
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/roslib/launcher.py", line 93, in _generate_python_path
+    m = rospack.get_manifest(pkg)
+  File "/usr/lib/python2.7/dist-packages/rospkg/rospack.py", line 167, in get_manifest
+    return self._load_manifest(name)
+  File "/usr/lib/python2.7/dist-packages/rospkg/rospack.py", line 211, in _load_manifest
+    retval = self._manifests[name] = parse_manifest_file(self.get_path(name), self._manifest_name, rospack=self)
+  File "/usr/lib/python2.7/dist-packages/rospkg/manifest.py", line 410, in parse_manifest_file
+    from rosdep2.rospack import init_rospack_interface, is_ros_package, is_system_dependency, is_view_empty
+  File "/usr/lib/python2.7/dist-packages/rosdep2/__init__.py", line 45, in <module>
+    from .lookup import RosdepDefinition, RosdepView, RosdepLookup, \
+  File "/usr/lib/python2.7/dist-packages/rosdep2/lookup.py", line 44, in <module>
+    from .sources_list import SourcesListLoader
+  File "/usr/lib/python2.7/dist-packages/rosdep2/sources_list.py", line 48, in <module>
+    from .gbpdistro_support import get_gbprepo_as_rosdep_data, download_gbpdistro_as_rosdep_data
+  File "/usr/lib/python2.7/dist-packages/rosdep2/gbpdistro_support.py", line 18, in <module>
+    from .platforms.debian import APT_INSTALLER
+  File "/usr/lib/python2.7/dist-packages/rosdep2/platforms/debian.py", line 36, in <module>
+    from .pip import PIP_INSTALLER
+  File "/usr/lib/python2.7/dist-packages/rosdep2/platforms/pip.py", line 33, in <module>
+    import pkg_resources
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2927, in <module>
+    @_call_aside
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2913, in _call_aside
+    f(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2940, in _initialize_master_working_set
+    working_set = WorkingSet._build_master()
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 626, in _build_master
+    ws = cls()
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 619, in __init__
+    self.add_entry(entry)
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 675, in add_entry
+    for dist in find_distributions(entry, True):
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 1982, in find_on_path
+    path_item, entry, metadata, precedence=DEVELOP_DIST
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2370, in from_location
+    py_version=py_version, platform=platform, **kw
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2687, in _reload_version
+    md_version = _version_from_file(self._get_metadata(self.PKG_INFO))
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2335, in _version_from_file
+    line = next(iter(version_lines), '')
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2503, in _get_metadata
+    for line in self.get_metadata_lines(name):
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 1873, in get_metadata_lines
+    return yield_lines(self.get_metadata(name))
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 1868, in get_metadata
+    raise
+KeyboardInterrupt
+Did not value for minimum arming thrust from the params, defaulting to 9.9 N
+Using sim_time and did not get a clock scaling value. Defaulting to automatic clock scaling.
+Ignore collisions: 0
+Initial pose: 0 0 1 0 0 0 1 
+[ERROR] [1582598956.659464286]: [setParam] Failed to contact master at [robotclass:42965].  Retrying...
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/visualizer/src/viewer.py", line 5, in <module>
+    from mpl_toolkits.mplot3d import Axes3D
+  File "/usr/lib/python2.7/dist-packages/mpl_toolkits/__init__.py", line 2, in <module>
+    __import__('pkg_resources').declare_namespace(__name__)
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2927, in <module>
+    @_call_aside
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2913, in _call_aside
+    f(*args, **kwargs)
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2955, in _initialize_master_working_set
+    list(map(working_set.add_entry, sys.path))
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 675, in add_entry
+    for dist in find_distributions(entry, True):
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 1982, in find_on_path
+    path_item, entry, metadata, precedence=DEVELOP_DIST
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2370, in from_location
+    py_version=py_version, platform=platform, **kw
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2687, in _reload_version
+    md_version = _version_from_file(self._get_metadata(self.PKG_INFO))
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2335, in _version_from_file
+    line = next(iter(version_lines), '')
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 2503, in _get_metadata
+    for line in self.get_metadata_lines(name):
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 1873, in get_metadata_lines
+    return yield_lines(self.get_metadata(name))
+  File "/usr/lib/python2.7/dist-packages/pkg_resources/__init__.py", line 1863, in get_metadata
+    metadata = f.read()
+  File "/usr/lib/python2.7/codecs.py", line 311, in decode
+    def decode(self, input, final=False):
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/flightcontroller/src/position_controller.py", line 138, in <module>
+    main()
+  File "/home/robotclass/Desktop/work/fastersim/src/flightcontroller/src/position_controller.py", line 130, in main
+    rospy.init_node('position_controller_node')
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/client.py", line 323, in init_node
+    raise rospy.exceptions.ROSInitException("init_node interrupted before it could complete")
+rospy.exceptions.ROSInitException: init_node interrupted before it could complete
+Traceback (most recent call last):
+  File "/home/robotclass/Desktop/work/fastersim/src/flightcontroller/src/angle_controller.py", line 157, in <module>
+    main()
+  File "/home/robotclass/Desktop/work/fastersim/src/flightcontroller/src/angle_controller.py", line 149, in main
+    rospy.init_node('angle_controller')
+  File "/opt/ros/kinetic/lib/python2.7/dist-packages/rospy/client.py", line 323, in init_node
+    raise rospy.exceptions.ROSInitException("init_node interrupted before it could complete")
+rospy.exceptions.ROSInitException: init_node interrupted before it could complete
+

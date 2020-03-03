@@ -8,6 +8,7 @@ from std_msgs.msg import Empty
 from pid_class import PID
 from rosgraph_msgs.msg import Clock
 from std_msgs.msg import String
+import math
 
 
 class VelocityController():
@@ -30,7 +31,7 @@ class VelocityController():
     Kp_z, Ki_z, Kd_z = gains['p_z'], gains['i_z'], gains['d_z']
 
     # Display incoming parameters
-    rospy.loginfo(str(rospy.get_name()) + ": Lauching with the following parameters:")
+    rospy.loginfo(str(rospy.get_name()) + ": Launching with the following parameters:")
     rospy.loginfo(str(rospy.get_name()) + ": p_xy - " + str(Kp_xy))
     rospy.loginfo(str(rospy.get_name()) + ": i_xy - " + str(Ki_xy))
     rospy.loginfo(str(rospy.get_name()) + ": d_xy - " + str(Kd_xy))
@@ -54,14 +55,21 @@ class VelocityController():
     self.y_vel = 0
     self.z_vel = 0  
 
+    # Reading the yaw
+    self.yaw_reading = 0
+
     # Create the subscribers and publishers
     self.vel_read_sub = rospy.Subscriber("/uav/sensors/velocity", TwistStamped, self.get_vel)
     self.vel_set_sub = rospy.Subscriber('/uav/input/velocity', Vector3 , self.set_vel)
     self.att_pub = rospy.Publisher("/uav/input/attitude", Vector3, queue_size=1)
     self.thrust_pub = rospy.Publisher('/uav/input/thrust', Float64, queue_size=1)
-
+    self.sub = rospy.Subscriber('/uav/sensors/attitude', Vector3, self.euler_angle_callback)
     # Run the communication node
     self.ControlLoop()
+
+
+  def euler_angle_callback(self, msg):
+    self.yaw_reading = msg.z
 
 
   # This is the main loop of this class
@@ -80,12 +88,16 @@ class VelocityController():
     while not rospy.is_shutdown():
 
       # Use a PID to calculate the angle you want to hold and thrust you want
-      x_output = self.vel_x_PID.get_output(self.x_setpoint, self.x_vel)
-      y_output = self.vel_y_PID.get_output(self.y_setpoint, self.y_vel)
+      x_output_w = self.vel_x_PID.get_output(self.x_setpoint, self.x_vel)
+      y_output_w = self.vel_y_PID.get_output(self.y_setpoint, self.y_vel)
       z_output.data = self.vel_z_PID.get_output(self.z_setpoint, self.z_vel) + 9.8
 
+      # Rotation from a world frame to drone frame
+      x_output = - math.cos(self.yaw_reading) * x_output_w - math.sin(self.yaw_reading) * y_output_w
+      y_output = math.sin(self.yaw_reading) * x_output_w - math.cos(self.yaw_reading) * y_output_w
+
       # Create and publish the data (0 yaw)
-      attitude = Vector3(y_output, -1*x_output, -1.57)
+      attitude = Vector3(x_output, y_output, -1.57)
       self.att_pub.publish(attitude) 
       self.thrust_pub.publish(z_output)
 
