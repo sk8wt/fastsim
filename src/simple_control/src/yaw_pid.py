@@ -1,4 +1,5 @@
-mport rospy
+#!/usr/bin/env python 
+import rospy
 from threading import Lock
 from geometry_msgs.msg import Vector3
 from std_msgs.msg import Float64
@@ -17,7 +18,7 @@ class YawPID():
 	self.ki = rospy.get_param("/yaw_pid_node/ki", 0.0)
         # TODO (5) read param /yaw_pid_node/kd
 	self.kd = rospy.get_param("/yaw_pid_node/kd", 0.0)
-	self.setpoint = rospy_get_param("/yaw_pid_node/setpoint", 0.0)
+	self.setpoint = rospy.get_param("/yaw_pid_node/setpoint", 0.0)
         # TODO (3) create subscriber to the topic '/uav/sensors/attitude' with type Vector3
 	self.yaw_sub = rospy.Subscriber('/uav/sensors/attitude', Vector3, self.yaw_angle_callback, queue_size = 1)
         # TODO (2) create publisher on the topic '/uav/input/yaw' with type Float64
