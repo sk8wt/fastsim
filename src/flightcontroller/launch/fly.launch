@@ -45,4 +45,12 @@
     <param name="pressure_variance" type="double" value="0.1" />
     <param name="velocity_variance" type="double" value="0.1" />
   </node>
+
+
+  <node name="yaw_pid_node" pkg="simple_control" type="yaw_pid.py">
+    <param name="kp" type="double" value="0.0" />
+    <param name="ki" type="double" value="0.0" />
+    <param name="kd" type="double" value="0.0" />
+    <param name="setpoint" type="double" value="0.0" />
+  </node>
 </launch>

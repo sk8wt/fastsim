@@ -21,6 +21,9 @@ if (CATKIN_ENABLE_TESTING)
   add_rostest(tests/p.launch)
   add_rostest(tests/i.launch)
   add_rostest(tests/d.launch)
+  add_rostest(tests/simmy1.launch)
+  add_rostest(tests/simmy2.launch)
+  add_rostest(tests/simmy3.launch)
 endif()
 
 add_service_files(
