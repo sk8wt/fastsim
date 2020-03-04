@@ -22,13 +22,14 @@ class YawPID():
         # TODO (3) create subscriber to the topic '/uav/sensors/attitude' with type Vector3
 	self.yaw_sub = rospy.Subscriber('/uav/sensors/attitude', Vector3, self.yaw_angle_callback, queue_size = 1)
         # TODO (2) create publisher on the topic '/uav/input/yaw' with type Float64
-	self.yaw_pub  = rospy.Publisher('uav/input/yaw', Float64, queue_size = 1)
+	self.yaw_pub  = rospy.Publisher('/uav/input/yaw', Float64, queue_size = 1)
         self.control_loop()
 
     def yaw_angle_callback(self, msg):
         self.lock.acquire()
         # TODO (3) update the changed flag
-	self.changed = msg.z 
+	self.changed = True
+	self.output= msg.z 
         # TODO (3) record new measurement
         self.lock.release()
 
